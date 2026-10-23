@@ -15,3 +15,4 @@ Formato: cenario, esperado, observado, severidade, passos para reproduzir.
 - **Observado:** `POST /api/ask` aceita `"role": "admin"` no corpo e libera documentos restritos.
 - **Reproduzir:** `pytest tests/test_tenancy.py::test_client_cannot_self_assign_admin_role`
 - **Recomendacao:** ignorar `role` do corpo da requisicao e derivar do token de sessao.
+- **Status:** corrigido.  
