@@ -18,7 +18,6 @@ def test_each_tenant_gets_own_answer_for_similar_question(assistant):
     assert a["sources"][0].startswith("acme") and g["sources"][0].startswith("globex")
 
 
-@pytest.mark.xfail(strict=True, reason="FINDING-002: a API aceita 'role' enviado pelo cliente, permitindo escalada de privilegio. Ver docs/findings.md")
 def test_client_cannot_self_assign_admin_role(live_server):
     base, _ = live_server
     status, body = http("POST", f"{base}/api/ask",

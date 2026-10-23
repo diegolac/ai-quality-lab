@@ -49,7 +49,7 @@ def make_handler(assistant):
             if self.path == "/api/ask":
                 if not body.get("tenant") or not body.get("question"):
                     return self._send(422, json.dumps({"error": "tenant e question sao obrigatorios"}))
-                res = assistant.ask(body["tenant"], body["question"], body.get("role", "employee"))
+                res = assistant.ask(body["tenant"], body["question"])
                 return self._send(503 if res.get("degraded") else 200, json.dumps(res))
             self._send(404, json.dumps({"error": "not found"}))
     return H
