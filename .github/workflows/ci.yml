@@ -8,7 +8,8 @@ on:
 jobs:
   smoke:
     name: Smoke (rapido, a cada commit)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,7 +21,8 @@ jobs:
   regression:
     name: Regressao completa (API, seguranca, RAG, financeiro)
     needs: smoke
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,7 +39,8 @@ jobs:
   ui:
     name: UI (Playwright)
     needs: smoke
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
